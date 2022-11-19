@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>W3.CSS Template</title>
 
-<!-- <script>
 var ingredientArray = ["egg", "tomato", "pasta"];
 var userIngredients = ["tomato", "pasta"];
 var arrayLength = ingredientArray.length;
@@ -12,9 +7,3 @@ for (var i = 0; i < arrayLength; i++) {
 
 
 }
-</script> -->
-
-<script src="script.js"></script>
-
-</body>
-</html>
