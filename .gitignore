@@ -351,3 +351,4 @@ MigrationBackup/
 
 #added
 .vscode/*
+.vs/*
