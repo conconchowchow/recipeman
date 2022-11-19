@@ -39,7 +39,10 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
     <a href="#" class="w3-bar-item w3-button">Shoes</a>
   </div> -->
   <input class="w3-input w3-border" type="text" placeholder="Enter Ingredients Here!" style="width:100%"></p>
-    <button type="button" class="w3-button w3-red w3-margin-bottom">Subscribe</button>
+    <button id="searchBtn" type="button" class="w3-button w3-red w3-margin-bottom">Search</button>
+ <!-- create a button that will call the function that will search the database for the ingredients entered in the text box -->
+
+
   <!-- <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> -->
   <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a>
   <!-- <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a> -->
@@ -203,7 +206,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
    End page content -->
 </div>
 
-<!-- Newsletter Modal -->
+<!-- Instructions Modal -->
 <div id="newsletter" class="w3-modal">
   <div class="w3-modal-content w3-animate-zoom" style="padding:32px">
     <div class="w3-container w3-white w3-center">
