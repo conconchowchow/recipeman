@@ -9,19 +9,30 @@ from bs4 import BeautifulSoup
 # Tutorial: https://towardsdatascience.com/web-scraping-with-beautiful-soup-a-use-case-fc1c60c8005d
 # session = requests.Session()
 
-URL = "https://www.allrecipes.com/recipe/19547/grandmas-corn-bread-dressing/"
+URL = "https://www.allrecipes.com/recipe/239960/fresh-cranberry-sauce/"
 page = requests.get(URL)
 
 soup = BeautifulSoup(page.content, "html.parser")
 
-container = soup.find_all(['h1'], class_=lambda x: x != 'hidden')
+header_container = soup.find_all(['h1'], class_=lambda x: x != 'hidden')
 
-for lines in container:
+ingredient_container = soup.find_all("div", {'class':"comp mntl-structured-ingredients"})
+
+for lines in header_container:
     if lines.name == 'h1':
         province = lines.text
         print('Recipe: ', province, "\n")
 
+for lines in ingredient_container:
+    if lines.name == 'div':
+        ingredients = lines.text
+        print(ingredients, "\n")
 
+"""
+for lines in ingredient_container:
+    if lines.name == 'div':
+        print('')
+"""
 # I made this function to try and connect our html file (website/frontend) and
 #our backend (python file). I do not know how it works rn.
 #def make_page():
