@@ -1,42 +1,3 @@
-const fs = require("fs");
-
-// if using ES6 Imports uncomment line below
-// import {readFileSync, promises as fsPromises} from 'fs';
-const {readFileSync, promises: fsPromises} = require('fs');
-
-// read file SYNCHRONOUSLY
-function syncReadFile(filename) {
-  const contents = readFileSync(filename, 'utf-8');
-
-  const arr = contents.split(/\r?\n/);
-
-  console.log(arr); // -> ['One', 'Two', 'Three', 'Four']
-
-  return arr;
-}
-
-// syncReadFile('./example.txt');
-
-// --------------------------------------------------------------
-
-// read file ASYNCHRONOUSLY
-async function asyncReadFile(filename) {
-  try {
-    const contents = await fsPromises.readFile(filename, 'utf-8');
-
-    const arr = contents.split(/\r?\n/);
-
-    console.log(arr); // -> ['One', 'Two', 'Three', 'Four']
-
-    return arr;
-  } catch (err) {
-    console.log(err);
-  }
-}
-
-// const recipe_list = asyncReadFile('recipes.txt');
-const recipe_list = asyncReadFile('./recipes.txt');
-
 function update() {
     // update the scene
     var text = document.getElementById("ingredients-box").value;
@@ -57,7 +18,4 @@ function update() {
     //   });
 
     alert(ingredients + "\n\n" + ingredientsList);
-
-    
-
 }
