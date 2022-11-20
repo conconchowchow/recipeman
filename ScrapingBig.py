@@ -3,13 +3,16 @@ import requests
 from bs4 import BeautifulSoup
 
 from flask import Flask, render_template
-app = Flask(__name__)
 
+app = Flask(__name__)
 @app.route('/')
 def home():
     return render_template('BigManHTML.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
+
+recipe_list = []
 
 # idk what this does it was just recommended on the tutorial I used
 # Tutorial: https://towardsdatascience.com/web-scraping-with-beautiful-soup-a-use-case-fc1c60c8005d
@@ -32,10 +35,13 @@ for i in range(len(list_of_webPages)):
     ul = soup.find('ul', class_="mntl-structured-ingredients__list")
     Others = ul.find_all("span")
 
+    recipe_item = [list_of_webPages[i]]
+
     for lines in header_container:
         if lines.name == 'h1':
             province = lines.text
-            print('Recipe: ', province, "\n")
+            recipe_item.append(province[1:])
+            # print('Recipe: ', province, "\n")
     """
     for lines in ingredient_container:
         if lines.name == 'div':
@@ -50,8 +56,12 @@ for i in range(len(list_of_webPages)):
             print(lines)
     """
 
-    for lines in Others:
-        print(lines.text)
+    for lines in range(2,len(Others),3):
+        recipe_item.append(Others[lines].text)
+        # print(lines.text)
+    
+    print(recipe_item)
+    recipe_list.append(recipe_item)
 
 
 
