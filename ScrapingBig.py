@@ -34,6 +34,8 @@ for i in range(len(list_of_webPages)):
 
     header_container = soup.find_all(['h1'], class_=lambda x: x != 'hidden')
 
+    image = soup.find_all({'class': 'primary-image__image mntl-primary-image--blurry loaded'})
+
     ingredient_container = soup.find_all("div", {'class':"comp mntl-structured-ingredients"})
     ul = soup.find('ul', class_="mntl-structured-ingredients__list")
     Others = ul.find_all("span")
