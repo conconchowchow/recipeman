@@ -13,11 +13,16 @@ f = open("recipes.txt", "w")
 # idk what this does it was just recommended on the tutorial I used
 # Tutorial: https://towardsdatascience.com/web-scraping-with-beautiful-soup-a-use-case-fc1c60c8005d
 # session = requests.Session()
-list_of_webPages = ["https://www.allrecipes.com/recipe/8318099/holiday-roast-turkey-cordon-bleu/", 'https://www.allrecipes.com/recipe/8318099/holiday-roast-turkey-cordon-bleu/',
+list_of_webPages = [ 'https://www.allrecipes.com/recipe/8318099/holiday-roast-turkey-cordon-bleu/',
                     "https://www.allrecipes.com/recipe/27072/mexican-rice-ii/", "https://www.allrecipes.com/recipe/203800/pico-de-gallo/",
                     "https://www.allrecipes.com/recipe/10402/the-best-rolled-sugar-cookies/", "https://www.allrecipes.com/recipe/17345/buche-de-noel/",
                     "https://www.allrecipes.com/recipe/158140/spaghetti-sauce-with-ground-beef/", "https://www.allrecipes.com/recipe/279015/air-fryer-chicken-taquitos/",
                     "https://www.allrecipes.com/recipe/8490854/roasted-carrots-with-garlic-bread-crumbs/", "https://www.allrecipes.com/recipe/212721/indian-chicken-curry-murgh-kari/"]
+
+webPages_names = [ 'Holiday Roast Turkey Cordon Bleu', 'Mexican Rice', 'Pico de Gallo', 'The Best Rolled Sugar Cookies',
+                  'Buche de Noel', 'Spaghetti Sauce with Ground Beef', 'Air Fryer Chicken Taquitos', 'Roasted Carrots with Garlic Bread Crumbs', 'Indian Chicken Curry Murgh Kari']
+
+
 
 print("Scraping website...",end="")
 
@@ -40,21 +45,8 @@ for i in range(len(list_of_webPages)):
             province = lines.text
             recipe_item.append(province[1:])
             # print('Recipe: ', province, "\n")
-    """
-    for lines in ingredient_container:
-        if lines.name == 'div':
-            ingredients = lines.text
-            print(ingredients, "\n")
-    """
-    """
-    new_ingredient = soup.find_all('div', {'class':"mntl-structured-ingredients"})
-    for lines in new_ingredient:
-        if lines.name == 'div':
-            stuff = lines.text
-            print(lines)
-    """
 
-    for lines in range(2,len(Others),3):
+    for lines in range(2,len(Others), 3):
         recipe_item.append(Others[lines].text)
         # print(lines.text)
     
@@ -75,14 +67,7 @@ with open("recipes.txt", "w") as txt_file:
 
 print("Done!")
 
-    #    print(soup.select_one('ul.mntl-structured-ingredients__list span: last - child'))
-    #    data = Others.find_all('span', data-ingredient-name="true")
-    #    print(date_published)
-    #    print(soup.select_one('ul.mntl-structured-ingredients__list span:last-of-type').text)
 
-    # I made this function to try and connect our html file (website/frontend) and
-    #our backend (python file). I do not know how it works rn.
-    #def make_page():
     #    long = render_template('BigBoyJavaScript.html', title = title, image = image)
 
 ######################
@@ -92,7 +77,7 @@ print("Done!")
 app = Flask(__name__)
 @app.route('/')
 def home():
-    return render_template('BigManHTML.html')
+    return render_template('BigManHTML.html', url_list = list_of_webPages, name_list = webPages_names)
 
 if __name__ == '__main__':
     app.run(debug=True)
