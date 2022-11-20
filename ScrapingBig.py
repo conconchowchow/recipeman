@@ -22,6 +22,15 @@ list_of_webPages = [ 'https://www.allrecipes.com/recipe/8318099/holiday-roast-tu
 webPages_names = [ 'Holiday Roast Turkey Cordon Bleu', 'Mexican Rice', 'Pico de Gallo', 'The Best Rolled Sugar Cookies',
                   'Buche de Noel', 'Spaghetti Sauce with Ground Beef', 'Air Fryer Chicken Taquitos', 'Roasted Carrots with Garlic Bread Crumbs', 'Indian Chicken Curry Murgh Kari']
 
+ingedients_for_recipes = ['vegetable oil;boneless, skin-on turkey breast;kosher salt, divided;freshly ground black pepper, divided;ground cayenne pepper;Dijon mustard;prepared pesto sauce;dried cranberries, or to taste;ham, thinly sliced;provolone cheese',
+'vegetable oil;uncooked long-grain rice;garlic salt;ground cumin;chopped onion;chicken broth;tomato sauce',
+'roma (plum) tomatoes, diced;red onion, minced;chopped fresh cilantro;jalapeño pepper, seeded and minced;lime, juiced;garlic, minced;garlic powder;ground cumin, or to taste;salt and ground black pepper to taste',
+'butter, softened;white sugar;eggs;vanilla extract;all-purpose flour;baking powder;salt',
+'confectioners\' sugar;unsweetened cocoa powder;vanilla extract;egg yolks;white sugar;unsweetened cocoa powder;vanilla extract;salt;egg whites;white sugar;confectioners\' sugar for dusting',
+'ground beef;onion, chopped;garlic, minced;green bell pepper, diced;diced tomatoes;tomato sauce;tomato paste;dried oregano;dried basil;salt;ground black pepper',
+'vegetable oil;diced onion;garlic, minced;chopped green chiles (such as Ortega®);Mexican-style hot tomato sauce (such as El Pato®);shredded rotisserie chicken;shredded Mexican cheese blend;Neufchâtel cheese;salt and ground black pepper to taste;corn tortillas;avocado oil cooking spray',
+'carrots, peeled;orange juice;water;ground coriander;salt;freshly ground black pepper;butter, melted, divided;panko bread crumbs;orange zest;garlic, minced;chopped fresh parsley for garnish',
+'skinless, boneless chicken breast halves;salt;cooking oil;chopped onion;minced garlic;minced fresh ginger root;curry powder;ground cumin;ground turmeric;ground coriander;cayenne pepper;water;crushed tomatoes;plain yogurt;chopped fresh cilantro;salt;water;garam masala;chopped fresh cilantro;fresh lemon juice']
 
 
 print("Scraping website...",end="")
@@ -79,7 +88,7 @@ print("Done!")
 app = Flask(__name__)
 @app.route('/')
 def home():
-    return render_template('BigManHTML.html', url_list = list_of_webPages, name_list = webPages_names)
+    return render_template('BigManHTML.html', url_list = list_of_webPages, name_list = webPages_names, ingredient_list = ingedients_for_recipes)
 
 if __name__ == '__main__':
     app.run(debug=True)
