@@ -4,7 +4,8 @@
 <title>Recipe Finder</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="attributes.css">
+<!-- <link rel="stylesheet" href="attributes.css"> -->
+<link rel="stylesheet" href="{{ url_for('static', filename='attributes.css') }}">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -12,6 +13,11 @@
 .w3-sidebar a {font-family: "Roboto", sans-serif}
 body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 </style>
+
+<!-- <?PHP echo shell_exec("python3.10 ScrapingBig.py"); ?> -->
+<!-- <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+<script defer src="https://pyscript.net/latest/pyscript.js"></script> -->
+
 </head>
 <body class="w3-content" style="max-width:1200px">
 
@@ -43,8 +49,12 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <!-- w3-input w3-border -->
   <textarea id="ingredients-box" class="border-gradient border-gradient-purple" rows="5" cols="25" placeholder="Enter Ingredients Here!" style="max-width: 95%; min-width: 95%; min-height: 5%;"></textarea>
     <button onclick="update()" type="button" class="w3-button w3-light-green w3-margin-bottom">Search</button>  <!-- create a button that will call the function that will search the database for the ingredients entered in the text box -->
+    
     <script src="script.js"></script>
     <script src="script2.js"></script>
+
+    <!-- <py-script src="ScrapingBig.py"> 
+    </py-script> -->
     
   <!-- <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> -->
   <a href="javascript:void(0)" class="w3-bar-item w3-button w3-light-grey w3-margin-bottom w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Instructions</a>
@@ -152,11 +162,15 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   </div>
 -->
   <!-- Recipe Links section -->
-  <div class="w3-container w3-black w3-padding-32">
+  <div class="w3-container w3-white w3-padding-16">
     <h1>Recipe</h1>
     <p>links</p>
   </div>
 
+  <div class="w3-container w3-white w3-padding-16">
+    <h1>Recipe</h1>
+    <p>links</p>
+  </div>
   <!-- Footer -->
   <!--<footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">
     <div class="w3-row-padding">
