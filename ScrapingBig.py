@@ -19,6 +19,8 @@ list_of_webPages = ["https://www.allrecipes.com/recipe/8318099/holiday-roast-tur
                     "https://www.allrecipes.com/recipe/158140/spaghetti-sauce-with-ground-beef/", "https://www.allrecipes.com/recipe/279015/air-fryer-chicken-taquitos/",
                     "https://www.allrecipes.com/recipe/8490854/roasted-carrots-with-garlic-bread-crumbs/", "https://www.allrecipes.com/recipe/212721/indian-chicken-curry-murgh-kari/"]
 
+print("Scraping website...",end="")
+
 for i in range(len(list_of_webPages)):
     URL = list_of_webPages[i]
     page = requests.get(URL)
@@ -59,13 +61,19 @@ for i in range(len(list_of_webPages)):
     # print(recipe_item) ### prints each item going into recipe_item
     recipe_list.append(recipe_item)
 
+print("Done!")
+
 ######################
 ### RECIPE  WRITER ###
 ######################
 
+print("Writing to file...",end="")
+
 with open("recipes.txt", "w") as txt_file:
     for line in recipe_list:
         txt_file.write(";".join(line) + "\n")
+
+print("Done!")
 
     #    print(soup.select_one('ul.mntl-structured-ingredients__list span: last - child'))
     #    data = Others.find_all('span', data-ingredient-name="true")
