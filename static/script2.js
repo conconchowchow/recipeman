@@ -1,4 +1,5 @@
 const fs = require("fs");
+const recipes = syncReadFile('./recipes.txt');
 
 function update() {
     // update the scene
@@ -18,8 +19,6 @@ function update() {
       
     //     console.log(data.toString());
     //   });
-
-    const recipes = syncReadFile('./recipes.txt');
 
     alert(recipes[0] + "\n\n" + ingredients + "\n\n" + ingredientsList);
 
