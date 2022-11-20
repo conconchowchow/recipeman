@@ -2,6 +2,15 @@ import requests
 # from flask import render_template
 from bs4 import BeautifulSoup
 
+from flask import Flask, render_template
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return render_template('BigManHTML.html')
+if __name__ == '__main__':
+    app.run()
+
 # Not sure what this does
 # @app.route('/', methods = ['get'])
 
