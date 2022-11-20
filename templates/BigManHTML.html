@@ -72,15 +72,15 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 
   <!-- Recipe Links section -->
   <div id="recipe1" class="w3-container w3-solid w3-white w3-padding-16"; style = "position:relative; left:40px; margin-top:20px;">
-    <h1>{{name_list[0]}}</h1>
-    <p>{{ingredient_list[ name_list[0] ]}}</p>
-    <a href = {{url_list[0]}}> {{name_list[0]}} </a>
+    <h1>{{name_list[ recipe_1 ]}}</h1>
+    <p>{{ingredient_list[ name_list[ recipe_1 ] ]}}</p>
+    <a href = {{url_list[0]}}> {{name_list[ recipe_1 ]}} </a>
     </div>
 
   <div id="recipe2" class="w3-container w3-solid w3-white w3-padding-16"; style = "position:relative; left:40px; margin-top:20px">
-    <h1>{{name_list[1]}}</h1>
-    <p>{{ingredient_list[ name_list[1] ]}}</p>
-    <a href = {{url_list[1]}}> {{name_list[1]}} </a>
+    <h1>{{name_list[recipe_2 ]}}</h1>
+    <p>{{ingredient_list[ name_list[ recipe_2 ] ]}}</p>
+    <a href = {{url_list[1]}}> {{name_list[ recipe_2 ]}} </a>
   </div>
 
   <div id="recipes_list" class="w3-container w3-solid w3-white w3-padding-16"; style = "position:relative; left:40px; margin-top:20px">
@@ -116,6 +116,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
       <i onclick="document.getElementById('newsletter').style.display='none'" class="fa fa-remove w3-right w3-button w3-transparent w3-xxlarge"></i>
       <h2 class="w3-wide">INSTRUCTIONS</h2>
       <p>Type in the foods you own with commas inbetween to show recipes that you can make</p>
+      <p>Example: "salt, water, etc."</p>
     </div>
   </div>
 </div>

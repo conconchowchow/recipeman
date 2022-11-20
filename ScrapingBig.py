@@ -76,7 +76,7 @@ with open("recipes.txt", "w") as txt_file:
 
 print("Done!")
 
-print(ingredientDict)
+# print(ingredientDict)
     #    long = render_template('BigBoyJavaScript.html', title = title, image = image)
 
 ######################
@@ -86,7 +86,7 @@ print(ingredientDict)
 app = Flask(__name__)
 @app.route('/')
 def home():
-    return render_template('BigManHTML.html', url_list = list_of_webPages, name_list = webPages_names, ingredient_list = ingredientDict)
+    return render_template('BigManHTML.html', url_list = list_of_webPages, name_list = webPages_names, ingredient_list = ingredientDict, recipe_1 = 0, recipe_2 = 1)
 
 
 def my_form():
@@ -110,10 +110,12 @@ def my_form_post():
 
     max_value = max(recipe_ingredient_count)
 
+
     for i in range(len(recipe_ingredient_count)):
         if recipe_ingredient_count[i] == max_value:
-            return webPages_names[i]
-    return "null"
+            # return webPages_names[i]
+            return render_template('BigManHTML.html', url_list = list_of_webPages, name_list = webPages_names, ingredient_list = ingredientDict, recipe_1 = i, recipe_2 = 1)
+    return render_template('BigManHTML.html', url_list = list_of_webPages, name_list = webPages_names, ingredient_list = ingredientDict, recipe_1 = 0, recipe_2 = 1)
 
 
 if __name__ == '__main__':
