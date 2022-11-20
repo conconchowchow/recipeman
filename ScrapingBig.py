@@ -76,7 +76,7 @@ with open("recipes.txt", "w") as txt_file:
 
 print("Done!")
 
-
+print(ingredientDict)
     #    long = render_template('BigBoyJavaScript.html', title = title, image = image)
 
 ######################

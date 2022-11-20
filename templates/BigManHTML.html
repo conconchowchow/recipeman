@@ -187,13 +187,13 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <!-- Recipe Links section -->
   <div id="recipe1" class="w3-container w3-solid w3-white w3-padding-16"; style = "position:relative; left:40px; margin-top:20px;">
     <h1>{{name_list[0]}}</h1>
-    <p>{{ingredient_list[0]}}</p>
+    <p>{{ingredient_list[ name_list[0] ]}}</p>
     <a href = {{url_list[0]}}> {{name_list[0]}} </a>
     </div>
 
   <div id="recipe2" class="w3-container w3-solid w3-white w3-padding-16"; style = "position:relative; left:40px; margin-top:20px">
     <h1>{{name_list[1]}}</h1>
-    <p>{{ingredient_list[1]}}</p>
+    <p>{{ingredient_list[ name_list[1] ]}}</p>
     <a href = {{url_list[1]}}> {{name_list[1]}} </a>
     <ul>
       {% for i in range(url_list | length) %}
@@ -202,6 +202,34 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 
     </ul>
   </div>
+
+  <script type="text/javascript">
+    function update() {
+    // update the scene
+    var text = document.getElementById("ingredients-box").value;
+    var ingredients = text.split(",");
+    var ingredientsList = document.getElementById("ingredients-list");
+
+    document.getElementById("recipe1").innerHTML = `<h1>{{name_list[5]}}</h1>
+    <p>{{ingredient_list[ name_list[5] ]}}</p>
+    <a href = {{url_list[5]}}> {{name_list[5]}} </a>`;
+
+    alert(ingredients + "\n\n" + ingredientsList);
+}
+  </script>
+  <!-- <script type="text/javascript">
+    function update() {
+    // update the scene
+    var text = document.getElementById("ingredients-box").value;
+    var ingredients = text.split(",");
+    var ingredientsList = document.getElementById("ingredients-list");
+
+    document.getElementById("recipe1").innerHTML = name_list[0];
+
+    alert(ingredients + "\n\n" + ingredientsList);
+    }
+    </script> -->
+
   <!-- Footer -->
   <!--<footer class="w3-padding-64 w3-light-grey w3-small w3-center" id="footer">
     <div class="w3-row-padding">
