@@ -8,7 +8,6 @@ from flask import Flask, render_template
 ######################
 
 recipe_list = []
-f = open("recipes.txt", "w")
 
 # idk what this does it was just recommended on the tutorial I used
 # Tutorial: https://towardsdatascience.com/web-scraping-with-beautiful-soup-a-use-case-fc1c60c8005d
@@ -21,6 +20,14 @@ list_of_webPages = [ 'https://www.allrecipes.com/recipe/8318099/holiday-roast-tu
 
 webPages_names = [ 'Holiday Roast Turkey Cordon Bleu', 'Mexican Rice', 'Pico de Gallo', 'The Best Rolled Sugar Cookies',
                   'Buche de Noel', 'Spaghetti Sauce with Ground Beef', 'Air Fryer Chicken Taquitos', 'Roasted Carrots with Garlic Bread Crumbs', 'Indian Chicken Curry Murgh Kari']
+
+file1 = open('recipes.txt', 'r')
+Lines = file1.readlines()
+ingredientDict = {}
+for i in range(len(Lines)):
+    ingredients = Lines[i].split(';')[2:-1]
+    #print(webPages_names[i])
+    ingredientDict[webPages_names[i]] = ingredients
 
 
 
@@ -51,7 +58,7 @@ for i in range(len(list_of_webPages)):
     for lines in range(2,len(Others), 3):
         recipe_item.append(Others[lines].text)
         # print(lines.text)
-    
+
     # print(recipe_item) ### prints each item going into recipe_item
     recipe_list.append(recipe_item)
 
