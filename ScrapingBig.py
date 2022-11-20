@@ -95,11 +95,25 @@ def my_form():
 
 @app.route('/', methods=['POST'])
 def my_form_post():
-    variable = request.form['variable']
-    for item in range(0, 9):
-        if variable in ingredientDict[webPages_names[item]]:
-            return webPages_names[item]
-    return variable
+    recipe_ingredient_count = []
+    inputs = request.form['variable'].split(', ')
+    print(inputs)
+    for recipe_count in range(len(ingredientDict)):
+        count = 0
+
+        for item in range(len(inputs)):
+            if inputs[item] in ingredientDict[webPages_names[recipe_count]]:
+                count+=1
+
+        recipe_ingredient_count.append(count)
+    print(recipe_ingredient_count)
+
+    max_value = max(recipe_ingredient_count)
+
+    for i in range(len(recipe_ingredient_count)):
+        if recipe_ingredient_count[i] == max_value:
+            return webPages_names[i]
+    return "null"
 
 
 if __name__ == '__main__':
