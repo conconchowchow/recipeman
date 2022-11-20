@@ -50,8 +50,14 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <textarea id="ingredients-box" class="border-gradient border-gradient-purple" rows="5" cols="25" placeholder="Enter Ingredients Here!" style="max-width: 95%; min-width: 95%; min-height: 5%;"></textarea>
     <button onclick="update()" type="button" class="w3-button w3-light-green w3-margin-bottom">Search</button>  <!-- create a button that will call the function that will search the database for the ingredients entered in the text box -->
     
-    <script src="script.js"></script>
-    <script src="script2.js"></script>
+    <!-- <script src="script.js"></script>
+    <script src="script2.js"></script> -->
+    <script type="text/javascript"
+         src="{{ url_for('static', filename='script.js') }}">
+    </script>
+    <script type="text/javascript"
+    src="{{ url_for('static', filename='script2.js') }}">
+    </script>
 
     <!-- <py-script src="ScrapingBig.py"> 
     </py-script> -->
