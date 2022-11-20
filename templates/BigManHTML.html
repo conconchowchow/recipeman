@@ -32,6 +32,12 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <textarea id="ingredients-box" class="border-gradient border-gradient-purple" rows="5" cols="25" placeholder="Enter Ingredients Here!" style="max-width: 95%; min-width: 95%; min-height: 5%;"></textarea>
     <button onclick="update()" type="button" class="w3-button w3-light-green w3-margin-bottom">Search</button>  <!-- create a button that will call the function that will search the database for the ingredients entered in the text box -->
 
+    <form method="POST">
+      <input name="variable">
+      <input type="submit">
+
+    </form>
+
     <!-- <script src="script.js"></script>
     <script src="script2.js"></script> -->
     <script type="text/javascript"
@@ -83,6 +89,7 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
       {% for i in range(url_list | length) %}
       <li> <a href = {{url_list[i]}}> {{name_list[i]}} </a></li>
       {% endfor %}
+
     </ul>
   </div>
 
@@ -101,8 +108,6 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
 }
   </script>
 </div>
-
-
 
 <!-- Instructions Modal -->
 <div id="newsletter" class="w3-modal">

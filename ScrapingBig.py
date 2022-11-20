@@ -1,7 +1,7 @@
 import requests
 # from flask import render_template
 from bs4 import BeautifulSoup
-from flask import Flask, render_template
+from flask import Flask, request, render_template
 
 ######################
 ### RECIPE SCRAPER ###
@@ -87,6 +87,20 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     return render_template('BigManHTML.html', url_list = list_of_webPages, name_list = webPages_names, ingredient_list = ingredientDict)
+
+
+def my_form():
+    return render_template('index.html')
+
+
+@app.route('/', methods=['POST'])
+def my_form_post():
+    variable = request.form['variable']
+    for item in range(0, 9):
+        if variable in ingredientDict[webPages_names[item]]:
+            return webPages_names[item]
+    return variable
+
 
 if __name__ == '__main__':
     app.run(debug=True)
