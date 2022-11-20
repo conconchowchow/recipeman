@@ -21,15 +21,6 @@ list_of_webPages = [ 'https://www.allrecipes.com/recipe/8318099/holiday-roast-tu
 webPages_names = [ 'Holiday Roast Turkey Cordon Bleu', 'Mexican Rice', 'Pico de Gallo', 'The Best Rolled Sugar Cookies',
                   'Buche de Noel', 'Spaghetti Sauce with Ground Beef', 'Air Fryer Chicken Taquitos', 'Roasted Carrots with Garlic Bread Crumbs', 'Indian Chicken Curry Murgh Kari']
 
-file1 = open('recipes.txt', 'r')
-Lines = file1.readlines()
-ingredientDict = {}
-for i in range(len(Lines)):
-    ingredients = Lines[i].strip('\n').split(';')[2:]
-    #print(webPages_names[i])
-    ingredientDict[webPages_names[i]] = ingredients
-
-
 
 print("Scraping website...",end="")
 
@@ -78,6 +69,18 @@ print("Done!")
 
 # print(ingredientDict)
     #    long = render_template('BigBoyJavaScript.html', title = title, image = image)
+
+print("Opening file...", end="")
+
+file1 = open('recipes.txt', 'r')
+Lines = file1.readlines()
+ingredientDict = {}
+for i in range(len(Lines)):
+    ingredients = Lines[i].strip('\n').split(';')[2:]
+    #print(webPages_names[i])
+    ingredientDict[webPages_names[i]] = ingredients
+
+print("Done!")
 
 ######################
 ### RECIPE WEBSITE ###
