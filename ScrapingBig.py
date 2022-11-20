@@ -9,7 +9,7 @@ app = Flask(__name__)
 def home():
     return render_template('BigManHTML.html')
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 
 # Not sure what this does
 # @app.route('/', methods = ['get'])
