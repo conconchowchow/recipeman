@@ -86,7 +86,7 @@ print("Done!")
 app = Flask(__name__)
 @app.route('/')
 def home():
-    return render_template('BigManHTML.html', url_list = list_of_webPages, name_list = webPages_names)
+    return render_template('BigManHTML.html', url_list = list_of_webPages, name_list = webPages_names, ingredient_list = ingredientDict)
 
 if __name__ == '__main__':
     app.run(debug=True)
