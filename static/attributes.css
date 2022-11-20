@@ -1,5 +1,7 @@
 html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
 
+/* taken css attributes from w3 so we didn't need to recreate all of it*/
+
 html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}
 article,aside,details,figcaption,figure,footer,header,main,menu,nav,section{display:block}summary{display:list-item}
 audio,canvas,progress,video{display:inline-block}progress{vertical-align:baseline}
@@ -233,6 +235,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-border-pale-red,.w3-hover-border-pale-red:hover{border-color:#ffe7e7!important}.w3-border-pale-green,.w3-hover-border-pale-green:hover{border-color:#e7ffe7!important}
 .w3-border-pale-yellow,.w3-hover-border-pale-yellow:hover{border-color:#ffffcc!important}.w3-border-pale-blue,.w3-hover-border-pale-blue:hover{border-color:#e7ffff!important}
 
+/* added */
 /* .border-gradient,.hover-border-gradient:hover{border-color:#9c27b0; border-image-source: linear-gradient(to bottom right, #64dab0, #ecd6f0)!important} */
 .border-gradient {
     border: 5 solid;
