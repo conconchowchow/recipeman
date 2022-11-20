@@ -1,18 +1,14 @@
 import requests
 # from flask import render_template
 from bs4 import BeautifulSoup
-
 from flask import Flask, render_template
 
-app = Flask(__name__)
-@app.route('/')
-def home():
-    return render_template('BigManHTML.html')
-
-if __name__ == '__main__':
-    app.run(debug=True)
+######################
+### RECIPE SCRAPER ###
+######################
 
 recipe_list = []
+f = open("recipes.txt", "w")
 
 # idk what this does it was just recommended on the tutorial I used
 # Tutorial: https://towardsdatascience.com/web-scraping-with-beautiful-soup-a-use-case-fc1c60c8005d
@@ -60,12 +56,16 @@ for i in range(len(list_of_webPages)):
         recipe_item.append(Others[lines].text)
         # print(lines.text)
     
-    print(recipe_item)
+    # print(recipe_item) ### prints each item going into recipe_item
     recipe_list.append(recipe_item)
 
+######################
+### RECIPE  WRITER ###
+######################
 
-
-
+with open("recipes.txt", "w") as txt_file:
+    for line in recipe_list:
+        txt_file.write(";".join(line) + "\n")
 
     #    print(soup.select_one('ul.mntl-structured-ingredients__list span: last - child'))
     #    data = Others.find_all('span', data-ingredient-name="true")
@@ -76,3 +76,15 @@ for i in range(len(list_of_webPages)):
     #our backend (python file). I do not know how it works rn.
     #def make_page():
     #    long = render_template('BigBoyJavaScript.html', title = title, image = image)
+
+######################
+### RECIPE WEBSITE ###
+######################
+
+app = Flask(__name__)
+@app.route('/')
+def home():
+    return render_template('BigManHTML.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
