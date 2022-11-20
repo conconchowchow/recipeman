@@ -353,3 +353,4 @@ MigrationBackup/
 .vscode/*
 .vs/*
 /recipes.txt
+.txt
