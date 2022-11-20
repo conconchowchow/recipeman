@@ -16,6 +16,7 @@ function update() {
       
     //     console.log(data.toString());
     //   });
+    document.getElementById("recipe1").innerHTML = "Hello World";
 
     alert(ingredients + "\n\n" + ingredientsList);
 }
