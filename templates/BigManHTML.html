@@ -73,18 +73,21 @@ body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
   <!-- Recipe Links section -->
   <div id="recipe1" class="w3-container w3-solid w3-white w3-padding-16"; style = "position:relative; left:40px; margin-top:20px;">
     <h1>{{name_list[ recipe_1 ]}}</h1>
-    <p>{{ingredient_list[ name_list[ recipe_1 ] ]}}</p>
+    <sub>{{recipe_1_num}} ingredients match</sub>
+    <p>Ingredients: {{ingredient_list[ name_list[ recipe_1 ] ]}}</p>
     <a href = {{url_list[0]}}> {{name_list[ recipe_1 ]}} </a>
     </div>
 
   <div id="recipe2" class="w3-container w3-solid w3-white w3-padding-16"; style = "position:relative; left:40px; margin-top:20px">
     <h1>{{name_list[recipe_2 ]}}</h1>
-    <p>{{ingredient_list[ name_list[ recipe_2 ] ]}}</p>
+    <sub>{{recipe_2_num}} ingredients match</sub>
+    <p>Ingredients: {{ingredient_list[ name_list[ recipe_2 ] ]}}</p>
     <a href = {{url_list[1]}}> {{name_list[ recipe_2 ]}} </a>
   </div>
 
   <div id="recipes_list" class="w3-container w3-solid w3-white w3-padding-16"; style = "position:relative; left:40px; margin-top:20px">
-    <h1>All Current Recipes (from 'allrecipes.com') </h1>
+    <h1>All Current Recipes</h1>
+    <p>(from 'allrecipes.com')</p>
     <ul>
       {% for i in range(url_list | length) %}
       <li> <a href = {{url_list[i]}}> {{name_list[i]}} </a></li>

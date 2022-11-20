@@ -86,7 +86,7 @@ print("Done!")
 app = Flask(__name__)
 @app.route('/')
 def home():
-    return render_template('BigManHTML.html', url_list = list_of_webPages, name_list = webPages_names, ingredient_list = ingredientDict, recipe_1 = 0, recipe_2 = 1)
+    return render_template('BigManHTML.html', url_list = list_of_webPages, name_list = webPages_names, ingredient_list = ingredientDict, recipe_1 = 0, recipe_1_num = 1, recipe_2 = 1, recipe_2_num = 0)
 
 
 def my_form():
@@ -114,8 +114,8 @@ def my_form_post():
     for i in range(len(recipe_ingredient_count)):
         if recipe_ingredient_count[i] == max_value:
             # return webPages_names[i]
-            return render_template('BigManHTML.html', url_list = list_of_webPages, name_list = webPages_names, ingredient_list = ingredientDict, recipe_1 = i, recipe_2 = 1)
-    return render_template('BigManHTML.html', url_list = list_of_webPages, name_list = webPages_names, ingredient_list = ingredientDict, recipe_1 = 0, recipe_2 = 1)
+            return render_template('BigManHTML.html', url_list = list_of_webPages, name_list = webPages_names, ingredient_list = ingredientDict, recipe_1 = i, recipe_1_num = max_value, recipe_2 = 1, recipe_2_num = 0)
+    return render_template('BigManHTML.html', url_list = list_of_webPages, name_list = webPages_names, ingredient_list = ingredientDict, recipe_1 = 0, recipe_2 = 1, recipe_2_num = 0)
 
 
 if __name__ == '__main__':
