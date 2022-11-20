@@ -25,7 +25,7 @@ file1 = open('recipes.txt', 'r')
 Lines = file1.readlines()
 ingredientDict = {}
 for i in range(len(Lines)):
-    ingredients = Lines[i].split(';')[2:-1]
+    ingredients = Lines[i].strip('\n').split(';')[2:]
     #print(webPages_names[i])
     ingredientDict[webPages_names[i]] = ingredients
 
